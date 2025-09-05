@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    color:#0f0f0f
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color:orange
+}
+
+.container {
+    position: relative;
+}
+
+.clock {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.315);
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0px 0px 30px; rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.clock span {
+    position: absolute;
+    transform: rotate(calc(30deg * var(--i)));
+    inset: 12px;
+    text-align: center;
+}
+
+.clock span b {
+    transform: rotate(calc(-30deg * var(--i)));
+    display: inline-block;
+    font-size: 20px;
+}
+
+.clock::before{
+    content:'';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #ffffff;
+}
+
+.hand {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.hand i {
+    position: absolute;
+    background-color: var(--clr);
+    width: 4px;
+    height: var(--h);
+    border-radius: 8px;
+
+}
+
+/* For tablets and smaller laptops */
+@media (max-width: 768px) {
+    .clock {
+        width: 220px;
+        height: 220px;
+    }
+
+    .clock span b {
+        font-size: 16px;
+    }
+
+    #hour {
+        --h: 55px;
+    }
+
+    #min {
+        --h: 65px;
+    }
+
+    #sec {
+        --h: 75px;
+    }
+
+    .hand i {
+        width: 3px;
+    }
+}
+
+/* For mobile phones */
+@media (max-width: 480px) {
+    .clock {
+        width: 160px;
+        height: 160px;
+    }
+
+    .clock span b {
+        font-size: 12px;
+    }
+
+    #hour {
+        --h: 40px;
+    }
+
+    #min {
+        --h: 50px;
+    }
+
+    #sec {
+        --h: 60px;
+    }
+
+    .hand i {
+        width: 2px;
+    }
+}
